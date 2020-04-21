@@ -33,7 +33,8 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Adding the split option creates some bug, but was easily resolved. 
+Adding the split option creates some bug, but was easily resolved.
+Initial states of the tip amount, total amount, and per person amount must be addressed when base is empty. Otherwise the app will crash when base becomes empty. 
 
 ## License
 
