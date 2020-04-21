@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
 
         seekBarTip.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-//                Log.i(TAG, "onProgressChanged $progress")
                 tvTipPercent.text = "$progress%"
                 computeTipAndTotalAndSplit()
                 updateTipDescription(progress)
@@ -40,7 +39,6 @@ class MainActivity : AppCompatActivity() {
 
         etBase.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-//                Log.i(TAG, "afterTextChanged $s")
                 computeTipAndTotalAndSplit()
             }
 
@@ -85,7 +83,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun computeTipAndTotalAndSplit() {
-        // Get the value of the base and tip percent
         if (etBase.text.isEmpty()){
             tvTipAmount.text = ""
             tvTotalAmount.text = ""
