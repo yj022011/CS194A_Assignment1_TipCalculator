@@ -22,7 +22,7 @@ The following **extensions** are implemented:
 * [x] Custom colors palette selected
 * [x] Add emojis in the text describing the tip (“poor”, “good”, etc.)
 * [x] Add the ability to split the bill across 1 to 16 people.
-* [x] Add the ability to round the total bill up or down, which updates the tip amount per person amount automatically.
+* [x] Add the option to round the total bill, which also updates the tip amount and per person amount as rounded integers automatically.
 
 
 ## Video Walkthrough
