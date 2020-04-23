@@ -29,7 +29,7 @@ The following **extensions** are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![](tippy.gif)
+![](tippy.gif width="250" height="700")
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
