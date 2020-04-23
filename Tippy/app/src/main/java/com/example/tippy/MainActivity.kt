@@ -8,11 +8,13 @@ import android.text.TextWatcher
 import android.widget.SeekBar
 import kotlinx.android.synthetic.main.activity_main.*
 import android.util.Log
+import android.widget.Switch
 import androidx.core.content.ContextCompat
 
 private const val TAG = "MainActivity"
 private const val INITIAL_TIP_PERCENT = 15
 private const val INITIAL_SPLIT = 1
+private const val INITIAL_ROUNDING_LABEL = "Rounding Off"
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         updateTipDescription(INITIAL_TIP_PERCENT)
         seekBarSplit.progress = INITIAL_SPLIT
         updateSplitNumber(INITIAL_SPLIT)
+        tvRoundLabel.text = INITIAL_ROUNDING_LABEL
 
         seekBarTip.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -33,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
@@ -43,7 +45,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
 
@@ -55,9 +56,14 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
+
+        switchRound.setOnCheckedChangeListener { _, isChecked ->
+            tvRoundLabel.text = if (isChecked) "Rounding On" else "Rounding Off"
+            computeTipAndTotalAndSplit()
+        }
+
     }
 
     private fun updateSplitNumber(splitNumber: Int) {
@@ -94,8 +100,15 @@ class MainActivity : AppCompatActivity() {
         val tipAmount = baseAmount * tipPercent / 100
         val totalAmount = baseAmount + tipAmount
         val perPersonAmount = totalAmount / seekBarSplit.progress
-        tvTipAmount.text = "%.2f".format(tipAmount)
-        tvTotalAmount.text = "%.2f".format(totalAmount)
-        tvPerPerson.text = "%.2f".format(perPersonAmount)
+
+        if (switchRound.isChecked) {
+            tvTipAmount.text = "%.0f".format(tipAmount)
+            tvTotalAmount.text = "%.0f".format(totalAmount)
+            tvPerPerson.text = "%.0f".format(perPersonAmount)
+        } else {
+            tvTipAmount.text = "%.2f".format(tipAmount)
+            tvTotalAmount.text = "%.2f".format(totalAmount)
+            tvPerPerson.text = "%.2f".format(perPersonAmount)
+        }
     }
 }

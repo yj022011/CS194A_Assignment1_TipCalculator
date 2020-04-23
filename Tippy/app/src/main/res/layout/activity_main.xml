@@ -7,14 +7,15 @@
     tools:context=".MainActivity">
 
     <!-- Views on the left side -->
+
     <TextView
         android:id="@+id/tvBaseLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="84dp"
         android:text="Base"
-        android:textColor="@android:color/black"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="15%"
-        android:textColor="@android:color/black"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
@@ -37,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="Tips"
-        android:textColor="@android:color/black"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvTipPercent" />
@@ -48,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Total"
-        android:textColor="@android:color/black"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
@@ -59,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Split"
-        android:textColor="@android:color/black"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/tvTotalLabel"
         app:layout_constraintEnd_toEndOf="@id/tvTotalLabel"
@@ -71,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="Per Person"
-        android:textColor="@android:color/black"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/tvSplitLabel"
@@ -79,6 +80,30 @@
 
 
     <!-- Views on the right side -->
+    <Switch
+        android:id="@+id/switchRound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="1dp"
+        android:scrollbarSize="1dp"
+        android:textSize="1dp"
+        android:padding="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRoundLabel"
+        app:layout_constraintEnd_toEndOf="@+id/etBase"
+        app:layout_constraintTop_toTopOf="@+id/tvRoundLabel" />
+
+    <TextView
+        android:id="@+id/tvRoundLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/etBase"
+        app:layout_constraintEnd_toStartOf="@+id/switchRound"
+        tools:text="Rounding Off" />
+
     <EditText
         android:id="@+id/etBase"
         android:layout_width="wrap_content"
@@ -188,5 +213,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
